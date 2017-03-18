@@ -1,4 +1,8 @@
 <?php
+# In my local environment I had to set the following to false due to self-signed certs and trust issues
+# I'm not entirely sure this is needed where there are trusted certificates
+# One note however: you must have set curl.cainfo=/path/to/cacert.pem in your php.ini
+curl_setopt($process, CURLOPT_SSL_VERIFYPEER, true);
 # Anyhing in <> must be replaced with your Hivemanager NG or webserver settings.
 # The following header will redirect back to the guest registration form after 30 seconds.
 header('Refresh: 30; URL=<ORGINALFORMURL>');
@@ -16,7 +20,7 @@ $groupId = "<GROUPID>";
 # At some point I would like to build logic to detect already existing credentials and simply renew, and resend.
 $randomnumber = rand(1, 100000);
 $userName = "$firstName.$lastName.$randomnumber";
-curl_setopt($process, CURLOPT_SSL_VERIFYPEER, false);
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
