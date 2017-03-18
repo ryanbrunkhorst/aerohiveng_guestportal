@@ -1,11 +1,27 @@
+<html>
+<head>
+<title>Guest Wifi Registration</title>
+<style>
+body {
+    background-color: #000000;
+}
+</style>  
+<link href="https://fonts.googleapis.com/css?family=Cutive" rel="stylesheet">  
+</head>
+
+<body text="#FFFFFF">
+<font face='Cutive'>
+<img src="logo.jpg">
+<p>  
+
 <?php
 # In my local environment I had to set the following to false due to self-signed certs and trust issues
 # I'm not entirely sure this is needed where there are trusted certificates
 # One note however: you must have set curl.cainfo=/path/to/cacert.pem in your php.ini
 curl_setopt($process, CURLOPT_SSL_VERIFYPEER, true);
 # Anyhing in <> must be replaced with your Hivemanager NG or webserver settings.
-# The following header will redirect back to the guest registration form after 30 seconds.
-header('Refresh: 30; URL=<ORGINALFORMURL>');
+# The following header will redirect back to the guest registration form after 60 seconds.
+header('Refresh: 60; URL=<ORGINALFORMURL>');
 # Start of variables that are passed on from the HTML form POST
 $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
@@ -32,7 +48,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
 # phone entry includes a '1' in front of the $phone variable. 
-# This is because Hivermanager NG requires the country code for all submissions
+# This is because Hivermanager NG requires the country code for all user creations
   CURLOPT_POSTFIELDS => "{\r\n  \"deliverMethod\": \"EMAIL_AND_SMS\",\r\n  \"policy\": \"$policy\",\r\n  \"email\": \"$email\",\r\n  \"firstName\": \"$firstName\",\r\n  \"groupId\": \"$groupId\",\r\n  \"lastName\": \"$lastName\",\r\n \"phone\": \"1$phone\",\r\n  \"userName\": \"$userName\"\r\n}",
   CURLOPT_HTTPHEADER => array(
     "authorization: Bearer <APITOKEN-FROMOAUTH2ORHMNGPORTAL>",
@@ -57,3 +73,11 @@ if ($err) {
     echo " with the password: " .$json->data->password; 
 }
 ?>
+
+<p>
+This screen will close in one minute
+<p>
+<a href="<ORGINALFORMURL>">Reset</a>
+</font>
+</body>
+</html>
