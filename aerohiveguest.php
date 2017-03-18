@@ -45,15 +45,15 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-#Still working on parsing out the output for a more selective reponse page.
 $json = json_decode($response);
 $err = curl_error($curl);
 
 curl_close($curl);
-echo "WiFi credentials successfully created. This page will close in 30 seconds.<p> Check the email or mobile phone you entered for your password and connect to the SSID indicated.";
+
 if ($err) {
   echo "cURL Error #:" . $err;
 } else { 
-  var_dump($json); 
+    echo "Connect to " .$json->data->ssid[0];
+    echo " with the password: " .$json->data->password; 
 }
 ?>
