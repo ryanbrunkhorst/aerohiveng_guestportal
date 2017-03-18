@@ -49,7 +49,7 @@ $json = json_decode($response);
 $err = curl_error($curl);
 
 curl_close($curl);
-
+#response page that pulls specific data from the decoded $response
 if ($err) {
   echo "cURL Error #:" . $err;
 } else { 
