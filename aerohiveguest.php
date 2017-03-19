@@ -56,7 +56,7 @@ curl_setopt_array($curl, array(
     "content-type: application/json",
     "x-ah-api-client-id: <AH-DEV-AP-CLIENTID>",
     "x-ah-api-client-redirect-uri: <AH-DEV-AP-REDIRECTURI>",
-    "x-ah-api-client-secret: AH-DEV-AP-CLIENTSECRET"
+    "x-ah-api-client-secret: <AH-DEV-AP-CLIENTSECRET>"
   ),
 ));
 
@@ -77,7 +77,7 @@ if ($err) {
 <p>
 This screen will close in one minute
 <p>
-<a href="<ORGINALFORMURL>">Reset</a>
+<a href="<ORGINALFORMURL>">Return</a>
 </font>
 </body>
 </html>
