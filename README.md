@@ -17,9 +17,6 @@ guide one in the proper direction.
 
 I'm open to any suggestions others might have. I'm not a developer by trade so please forgive any blantant mistakes in the code. Better yet, let me know and I'll make adjustments.
 
-# aerohiveng_azuread_selfservice
-Self-service PPSK creation after Azure AD authentication to Azure web app. Create, renew, delete, email, and sms credentials. Also allows for creation of guest credentials. 
-
 Much of the initial setup requires creating a guest management user, usergroups, and credential distribution group in the Hivemanger NG portal. Download the free program Postman to interact with the Aerohive API. An application must also be created in the development portal. Multiple web apps can utilize the same application in the Aerohive development portal. After that is done, OAUTH authentication must be employed using the guest management user. The address bar will show an authentication code which must be pasted into another POST call within 30 secs. I pre-staged postman with the needed URL and HTTP headers. The resulting response becomes the actual API access code which must be refreshed every 60 days. Here are the steps:
 
 	1. Put the following into a browser. You will authenticate and then need to visit the following in a browser. The client id must match the field in the Aerohive development portal application.
