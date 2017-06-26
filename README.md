@@ -21,7 +21,7 @@ Much of the initial setup requires creating a guest management user, usergroups,
 
 1. Put the following into a browser. You will authenticate and then need to visit the following in a browser. The client id must match the field in the Aerohive development portal application.
 
-https://cloud.aerohive.com/thirdpartylogin?client_id=a36b471b&redirect_uri=https://localhost
+https://cloud.aerohive.com/thirdpartylogin?client_id=CLIENTID&redirect_uri=https://localhost
 
 2. Login with the guest management user credentials.
 
