@@ -49,7 +49,7 @@ You'll now use the contents of accessToken: to make api calls along with the oth
 
 Refresh accesstoken
 
-Using Postman configure as such:
+Using Postman configured as such:
 <p><img src="https://raw.githubusercontent.com/FPU-NS/aerohiveng_guestportal/master/images/postman_refreshaccesstoken01.png"><p>
 <p><img src="https://raw.githubusercontent.com/FPU-NS/aerohiveng_guestportal/master/images/postman_refreshaccesstoken02.png"><p>
 
